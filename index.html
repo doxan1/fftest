@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>FF Throw Test</title>
+<script>
+class Exception {
+  constructor(text, exc) {
+    this.text = text;
+    this.exc = exc;
+  }
+}
+(async function() {
+  let query = document.location.search.substring(1);
+  if(new URLSearchParams(query).get("oops") != null) {
+    throw "oops";
+  }
+  throw new Exception("test", "inner_object");
+})();
+</script>
+</head>
+<body>
+<a href="https://github.com/doxan1/fftest/blob/master/index.html">Go to source code</a>
+</body>
+</html>
